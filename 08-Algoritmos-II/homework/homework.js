@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 // No cambies los nombres de las funciones.
 
 function quickSort(array) {
@@ -6,7 +6,16 @@ function quickSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
-
+  if (array.length <= 1) {
+    return array;
+  }
+  let mayores = [];
+  let menores = [];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > array[0]) mayores.push(array[i]);
+    else menores.push(array[i]);
+  }
+  return quickSort(menores).concat(array[0]).concat(quickSort(mayores));
 }
 
 function mergeSort(array) {
@@ -14,7 +23,6 @@ function mergeSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
-
 }
 
 // No modificar nada debajo de esta línea
